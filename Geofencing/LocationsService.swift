@@ -87,10 +87,12 @@ extension LocationsService: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("Just entered region: \(region.identifier)")
+        delegate?.locationsService(self, didEnterRegion: region)
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         print("Just exited region: \(region.identifier)")
+        delegate?.locationsService(self, didExitRegion: region)
     }
     
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
